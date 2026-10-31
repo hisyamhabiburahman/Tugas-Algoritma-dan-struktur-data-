@@ -15,43 +15,43 @@ restart laptop
 tekan esc berkali-kali
 
 ## 4. Sambungkan ke internet
-```iwctl```
+`iwctl`
 
-```device list```
+`device list`
 
-```station wlan0 get-networks```
+`station wlan0 get-networks`
 
-```station wlan0 connect nama wifi```
+`station wlan0 connect nama wifi`
 
-```ping 8.8.8.8```
+`ping 8.8.8.8`
 
 ## 5. Format partisi
-```vfat format``` untuk booting
+`vfat format` untuk booting
 
 ## 6. Setup luks 
-```cryptsetup luksFormat /dev/nvme0n1p15```
+`cryptsetup luksFormat /dev/nvme0n1p15`
 
 ## 7. Mounting 
-```mount /dev/mapper/main /mnt```
+`mount /dev/mapper/main /mnt`
 
-```mkfs.ext4 /dev/mapper/main```
+`mkfs.ext4 /dev/mapper/main`
 
-```mkdir -p /mnt/boot```
+`mkdir -p /mnt/boot`
 
 ## 8.Download aplikasi
-```pacstrap /mnt intel-uport linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2```
+`pacstrap /mnt intel-uport linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2`
 
 ## 9. Menyimpan mountingan
-```genfstab -U /mnt > /mnt/etc/fstab```
+`genfstab -U /mnt > /mnt/etc/fstab`
 
 ## 10. Menyimpan network 
-```cp /etc/systemd/network/*  /mnt/etc/systemd/network```
+`cp /etc/systemd/network/*  /mnt/etc/systemd/network`
 
 ## 11. Masuk kedalam mode chroot
-```arch-chroot /mnt```
+`arch-chroot /mnt`
 
 ## 12. Membuat Hostname
-```nvim etc/hostname```
+`nvim etc/hostname`
 
 i (masuk dalam mode edit)
 
@@ -62,7 +62,7 @@ esc
 :wq (untuk save)
 
 ## 13. memberi hak akses kepada user
-```nvim etc/sudoers.d/hisyam```
+`nvim etc/sudoers.d/hisyam`
 
 i (masuk dalam mode edit)
 
@@ -73,7 +73,7 @@ esc
 :wq
 
 ## 14. Masuk Proses Locale
-```nvim /etc/locale.gen```
+`nvim /etc/locale.gen`
 
 <img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 2 25 57 AM" src="https://github.com/user-attachments/assets/d9302cad-df64-4459-bad5-d284480cc542" />
 
@@ -83,71 +83,71 @@ esc
 
 :wq
 
-```locale-gen```
+`locale-gen`
 
-```locale > /etc/locale.conf```
+`locale > /etc/locale.conf`
 
-```nvim /etc/locale.conf```
+`nvim /etc/locale.conf`
 
 ## 15. Masuk Kernel Parameter 
-```mkdir -p /etc/cmdline.d```
+`mkdir -p /etc/cmdline.d`
 
-```touch /etc/cmdline.d/01-boot.conf``` ( membuat file )
+`touch /etc/cmdline.d/01-boot.conf` ( membuat file )
 
-```echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf```
+`echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf`
 
-```mkdir -p kernel efi```
+`mkdir -p kernel efi`
 
-```mv intel-ucode.img kernel```
+`mv intel-ucode.img kernel`
 
-```mv vmlinuz-linux kernel/```
+`mv vmlinuz-linux kernel/`
 
-```rm initramfs-linux.img```
+`rm initramfs-linux.img`
 
-```cd efi mkdir linux```
+`cd efi mkdir linux`
 
-```cd ..```
+`cd ..`
 
-```ls```
+`ls`
 
-```ls efi```
+`ls efi`
 
-```ls kernel```
+`ls kernel`
 
 ## 16. Memindahkan File mkinitcpio
-```mv etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf```
+`mv etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf`
 
-```nvim /etc.mkinitcpio.d/default.conf```
+`nvim /etc.mkinitcpio.d/default.conf`
 
 search HOOKS dan tambahkan lvm2 sd-encrypt setelah sd-vconsole
 
 save
 
-```nvim /etc/mkinitcpio.d/linux.preset```
+`nvim /etc/mkinitcpio.d/linux.preset`
 
 <img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 2 25 58 AM" src="https://github.com/user-attachments/assets/754a55bf-768b-418c-a568-dca75a65f6e5" />
 
 
-```bootctl --path=boot install```
+`bootctl --path=boot install`
 
-```mkinitcpio -P```
+`mkinitcpio -P`
 
-```touch /etc/vconsole.conf```
+`touch /etc/vconsole.conf`
 
-```exit```
+`exit`
 
-```bootctl --path=/mnt/boot install```
+`bootctl --path=/mnt/boot install`
 
-```umount -R /mnt```
+`umount -R /mnt`
 
 reboot
 
 ## 17. Masuk Kedalam Arch Linux
-```sudo su```
+`sudo su`
 
-```systemctl enable --now systemd-networkd```
+`systemctl enable --now systemd-networkd`
 
-```systemctl enable --now systemd-resolved```
+`systemctl enable --now systemd-resolved`
 
 ## 18. Setup BIOS Mode
 posisi BIOS mati
@@ -156,15 +156,15 @@ reboot
 
 masuk ke dalam arch
 
-```sbctl create-keys```
+`sbctl create-keys`
 
-```sbctl status```
+`sbctl status`
 
-```sbctl sign -s /boot/efi/systemd/systemd-bootx64.efi```
+`sbctl sign -s /boot/efi/systemd/systemd-bootx64.efi`
 
-```sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI```
+`sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI`
 
-```sbctl sign -s /boot/kernel/vmlinuz-linux```
+`sbctl sign -s /boot/kernel/vmlinuz-linux`
 
 reboot
 

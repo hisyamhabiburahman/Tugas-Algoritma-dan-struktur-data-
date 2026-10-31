@@ -125,6 +125,9 @@ save
 
 ```nvim /etc/mkinitcpio.d/linux.preset```
 
+<img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 2 25 58 AM" src="https://github.com/user-attachments/assets/754a55bf-768b-418c-a568-dca75a65f6e5" />
+
+
 ```bootctl --path=boot install```
 
 ```mkinitcpio -P```

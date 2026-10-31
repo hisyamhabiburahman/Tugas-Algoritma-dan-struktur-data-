@@ -178,6 +178,14 @@ save
 reboot
 
 ## 19. Masuk Kedalam Arch
+Tampilan archlinux
+
+<img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 5 53 06 PM" src="https://github.com/user-attachments/assets/a30f79cc-6b2d-47e6-8934-1c77588247ff" />
+
+secure boot enable
+
+<img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 5 54 26 PM" src="https://github.com/user-attachments/assets/5cbcd14c-b62c-4f2a-88ab-fbd9b3c2b703" />
+
 
 
 

@@ -89,5 +89,97 @@ esc
 
 ```nvim /etc/locale.conf```
 
-## 15. Masuk Kedalam Kernel Parameter
+## 15. Masuk Kernel Parameter 
+```mkdir -p /etc/cmdline.d```
+
+```touch /etc/cmdline.d/01-boot.conf``` ( membuat file )
+
+```echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf```
+
+```mkdir -p kernel efi```
+
+```mv intel-ucode.img kernel```
+
+```mv vmlinuz-linux kernel/```
+
+```rm initramfs-linux.img```
+
+```cd efi mkdir linux```
+
+```cd ..```
+
+```ls```
+
+```ls efi```
+
+```ls kernel```
+
+## 16. Memindahkan File mkinitcpio
+```mv etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf```
+
+```nvim /etc.mkinitcpio.d/default.conf```
+
+search HOOKS dan tambahkan lvm2 sd-encrypt setelah sd-vconsole
+
+save
+
+```nvim /etc/mkinitcpio.d/linux.preset```
+
+```bootctl --path=boot install```
+
+```mkinitcpio -P```
+
+```touch /etc/vconsole.conf```
+
+```exit```
+
+```bootctl --path=/mnt/boot install```
+
+```umount -R /mnt```
+
+reboot
+
+## 17. Masuk Kedalam Arch Linux
+```sudo su```
+
+```systemctl enable --now systemd-networkd```
+
+```systemctl enable --now systemd-resolved```
+
+## 18. Setup BIOS Mode
+posisi BIOS mati
+
+reboot
+
+masuk ke dalam arch
+
+```sbctl create-keys```
+
+```sbctl status```
+
+```sbctl sign -s /boot/efi/systemd/systemd-bootx64.efi```
+
+```sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI```
+
+```sbctl sign -s /boot/kernel/vmlinuz-linux```
+
+reboot
+
+lalu ke BIOS 
+
+F7
+
+nyalakan secure boot
+
+reset key setup
+
+save
+
+reboot
+
+## 19. Masuk Kedalam Arch
+
+
+
+
 

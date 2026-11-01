@@ -1,18 +1,18 @@
 # INSTALASI ARCH LINUX
 ## 1. Download ISO Arch Linux
-download iso arch menggungakan web arch cari indonesia, citrahost dan link archlinux-2026.05.01-x86_64.iso
+### download iso arch menggungakan web arch cari indonesia, citrahost dan link archlinux-2026.05.01-x86_64.iso
 
 ## 2. Buat Bootable 
-colokkan flashdisk 
+### colokkan flashdisk 
 
-rufus file iso yang sudah di download ke dalam flashdisk
+### rufus file iso yang sudah di download ke dalam flashdisk
 
 ## 3. Booting ke flashdisk installer
-colokkan falshdisk
+### colokkan falshdisk
 
-restart laptop
+### restart laptop
 
-tekan esc berkali-kali
+### tekan esc berkali-kali
 
 ## 4. Sambungkan ke internet
 ```
@@ -87,16 +87,17 @@ arch-chroot /mnt
 ## 12. Membuat Hostname
 ```
 
-nvim etc/hostname
+nvim /etc/hostname
 ```
-i (masuk dalam mode edit)
+### i (masuk dalam mode edit)
 
-masukkan hostname
+### masukkan hostname
 
-esc 
+### esc 
+```
 
-:wq (untuk save)
-
+ :wq 
+```
 ## 13. memberi hak akses kepada user
 ```
 
@@ -106,10 +107,15 @@ nvim etc/sudoers.d/hisyam
 i (masuk dalam mode edit)
 
 ### tambahkan ini dalam sudoers
+```
 
-icem ALL=ALL(ALL:ALL)ALL
+icem ALL=ALL(ALL:ALL) ALL
+```
 esc
+```
+
 :wq
+```
 
 ## 14. Masuk Proses Locale
 ```
@@ -122,9 +128,10 @@ nvim /etc/locale.gen
 hapus hastag pada /en_US
 
 esc
+```
 
 :wq
-
+```
 ```
 
 locale-gen
@@ -248,11 +255,11 @@ sudo su
 ```
 
 ## 18. Setup BIOS Mode
-posisi BIOS mati
+### posisi BIOS mati
 
-reboot
+### reboot
 
-masuk ke dalam arch
+### masuk ke dalam arch
 
 ```
 
@@ -275,26 +282,26 @@ sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI
 sbctl sign -s /boot/kernel/vmlinuz-linux
 ```
 
-reboot
+### reboot
 
-lalu ke BIOS 
+### lalu ke BIOS 
 
-F7
+### F7
 
-nyalakan secure boot
+### nyalakan secure boot
 
-reset key setup
+### reset key setup
 
-save
+### save
 
-reboot
+### reboot
 
 ## 19. Masuk Kedalam Arch
-Tampilan archlinux
+### Tampilan archlinux
 
 <img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 5 53 06 PM" src="https://github.com/user-attachments/assets/a30f79cc-6b2d-47e6-8934-1c77588247ff" />
 
-secure boot enable
+### secure boot enable
 
 <img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 5 54 26 PM" src="https://github.com/user-attachments/assets/5cbcd14c-b62c-4f2a-88ab-fbd9b3c2b703" />
 

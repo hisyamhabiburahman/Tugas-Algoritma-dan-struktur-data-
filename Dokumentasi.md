@@ -64,7 +64,7 @@ mkdir -p /mnt/boot
 ## 8.Download aplikasi
 ```
 
-pacstrap /mnt intel-uport linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2
+pacstrap /mnt intel-ucode linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2
 ```
 
 ## 9. Menyimpan mountingan

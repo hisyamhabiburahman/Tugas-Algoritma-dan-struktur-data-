@@ -145,6 +145,9 @@ locale > /etc/locale.conf
 nvim /etc/locale.conf
 ```
 
+<img width="1600" height="1200" alt="10" src="https://github.com/user-attachments/assets/bc2eb202-9406-4a90-90d1-31cd680f89d6" />
+
+
 ## 15. Masuk Kernel Parameter 
 ```
 

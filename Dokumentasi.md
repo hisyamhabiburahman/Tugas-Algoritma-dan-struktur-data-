@@ -44,7 +44,7 @@ vfat format
 ## 6. Setup luks 
 ```
 
-cryptsetup luksFormat /dev/nvme0n1p15
+cryptsetup luksFormat /dev/nvme0n1p (partisi untuk root)
 ```
 
 ## 7. Mounting 
@@ -156,7 +156,7 @@ touch /etc/cmdline.d/01-boot.conf
 ```
 ```
 
-echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf
+echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf (nvme0n1p16 itu partisi boot)
 ```
 ```
 

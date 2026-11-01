@@ -171,6 +171,10 @@ mkdir -p kernel efi
 ```
 ```
 
+cd boot
+```
+```
+
 mv intel-ucode.img kernel/
 ```
 ```

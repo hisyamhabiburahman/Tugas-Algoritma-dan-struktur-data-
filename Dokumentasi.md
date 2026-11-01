@@ -227,10 +227,6 @@ nvim /etc/mkinitcpio.d/linux.preset
 
 ```
 
-bootctl --path=boot install
-```
-```
-
 mkinitcpio -P
 ```
 ```
@@ -240,6 +236,10 @@ touch /etc/vconsole.conf
 ```
 
 exit
+```
+```
+
+bootctl --path=boot install
 ```
 ```
 

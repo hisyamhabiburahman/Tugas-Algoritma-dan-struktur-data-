@@ -19,42 +19,76 @@ tekan esc berkali-kali
 iwctl`
 ```
 
-`device list`
+```
 
-`station wlan0 get-networks`
+device list
+```
+```
+station wlan0 get-networks
+```
+```
 
-`station wlan0 connect nama wifi`
+station wlan0 connect nama wifi
+```
+```
 
-`ping 8.8.8.8`
+ping 8.8.8.8
+```
 
 ## 5. Format partisi
-`vfat format` untuk booting
+```
+
+vfat format
+```
 
 ## 6. Setup luks 
-`cryptsetup luksFormat /dev/nvme0n1p15`
+```
+
+cryptsetup luksFormat /dev/nvme0n1p15
+```
 
 ## 7. Mounting 
-`mount /dev/mapper/main /mnt`
+```
 
-`mkfs.ext4 /dev/mapper/main`
+mount /dev/mapper/main /mnt
+```
+```
 
-`mkdir -p /mnt/boot`
+mkfs.ext4 /dev/mapper/main
+```
+```
+
+mkdir -p /mnt/boot
+```
 
 ## 8.Download aplikasi
-`pacstrap /mnt intel-uport linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2`
+```
+
+pacstrap /mnt intel-uport linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2
+```
 
 ## 9. Menyimpan mountingan
-`genfstab -U /mnt > /mnt/etc/fstab`
+```
+
+genfstab -U /mnt > /mnt/etc/fstab
+```
 
 ## 10. Menyimpan network 
-`cp /etc/systemd/network/*  /mnt/etc/systemd/network`
+```
+
+cp /etc/systemd/network/*  /mnt/etc/systemd/network
+```
 
 ## 11. Masuk kedalam mode chroot
-`arch-chroot /mnt`
+```
 
+arch-chroot /mnt
+```
 ## 12. Membuat Hostname
-`nvim etc/hostname`
+```
 
+nvim etc/hostname
+```
 i (masuk dalam mode edit)
 
 masukkan hostname
@@ -64,7 +98,10 @@ esc
 :wq (untuk save)
 
 ## 13. memberi hak akses kepada user
-`nvim etc/sudoers.d/hisyam`
+```
+
+nvim etc/sudoers.d/hisyam
+```
 
 i (masuk dalam mode edit)
 
@@ -75,7 +112,10 @@ esc
 :wq
 
 ## 14. Masuk Proses Locale
-`nvim /etc/locale.gen`
+```
+
+nvim /etc/locale.gen
+```
 
 <img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 2 25 57 AM" src="https://github.com/user-attachments/assets/d9302cad-df64-4459-bad5-d284480cc542" />
 
@@ -85,7 +125,11 @@ esc
 
 :wq
 
-`locale-gen`
+```
+
+locale-gen
+```
+```
 
 `locale > /etc/locale.conf`
 

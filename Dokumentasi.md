@@ -131,69 +131,121 @@ locale-gen
 ```
 ```
 
-`locale > /etc/locale.conf`
+locale > /etc/locale.conf
+```
+```
 
-`nvim /etc/locale.conf`
+nvim /etc/locale.conf
+```
 
 ## 15. Masuk Kernel Parameter 
-`mkdir -p /etc/cmdline.d`
+```
 
-`touch /etc/cmdline.d/01-boot.conf` ( membuat file )
+mkdir -p /etc/cmdline.d
+```
+```
 
-`echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf`
+touch /etc/cmdline.d/01-boot.conf
+```
+```
 
-`mkdir -p kernel efi`
+echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf
+```
+```
 
-`mv intel-ucode.img kernel`
+mkdir -p kernel efi
+```
+```
 
-`mv vmlinuz-linux kernel/`
+mv intel-ucode.img kernel
+```
+```
 
-`rm initramfs-linux.img`
+mv vmlinuz-linux kernel/
+```
+```
 
-`cd efi mkdir linux`
+rm initramfs-linux.img
+```
+```
 
-`cd ..`
+cd efi mkdir linux
+```
+```
 
-`ls`
+cd ..
+```
+```
 
-`ls efi`
+ls
+```
+```
 
-`ls kernel`
+ls efi
+```
+```
 
+ls kernel
+```
 ## 16. Memindahkan File mkinitcpio
-`mv etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf`
+```
 
-`nvim /etc.mkinitcpio.d/default.conf`
+mv etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf
+```
+```
+
+nvim /etc.mkinitcpio.d/default.conf
+```
 
 search HOOKS dan tambahkan lvm2 sd-encrypt setelah sd-vconsole
 
 save
+```
 
-`nvim /etc/mkinitcpio.d/linux.preset`
+nvim /etc/mkinitcpio.d/linux.preset
+```
 
 <img width="1600" height="1200" alt="WhatsApp Image 2026-10-31 at 2 25 58 AM" src="https://github.com/user-attachments/assets/754a55bf-768b-418c-a568-dca75a65f6e5" />
 
+```
 
-`bootctl --path=boot install`
+bootctl --path=boot install
+```
+```
 
-`mkinitcpio -P`
+mkinitcpio -P
+```
+```
 
-`touch /etc/vconsole.conf`
+touch /etc/vconsole.conf
+```
+```
 
-`exit`
+exit
+```
+```
 
-`bootctl --path=/mnt/boot install`
+bootctl --path=/mnt/boot install
+```
+```
 
-`umount -R /mnt`
+umount -R /mnt
+```
+```
 
+systemctl enable --now systemd-networkd
+```
+```
+
+systemctl enable --now systemd-resolved
+```
 reboot
 
 ## 17. Masuk Kedalam Arch Linux
-`sudo su`
+```
 
-`systemctl enable --now systemd-networkd`
-
-`systemctl enable --now systemd-resolved`
+sudo su
+```
 
 ## 18. Setup BIOS Mode
 posisi BIOS mati
@@ -202,15 +254,26 @@ reboot
 
 masuk ke dalam arch
 
-`sbctl create-keys`
+```
 
-`sbctl status`
+sbctl create-keys
+```
+```
 
-`sbctl sign -s /boot/efi/systemd/systemd-bootx64.efi`
+sbctl status
+```
+```
 
-`sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI`
+sbctl sign -s /boot/efi/systemd/systemd-bootx64.efi
+```
+```
 
-`sbctl sign -s /boot/kernel/vmlinuz-linux`
+sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI
+```
+```
+
+sbctl sign -s /boot/kernel/vmlinuz-linux
+```
 
 reboot
 

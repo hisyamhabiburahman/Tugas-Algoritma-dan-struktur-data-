@@ -1,4 +1,4 @@
-# INSTALASI ARCH LINUX
+ # INSTALASI ARCH LINUX
 ## 1. Download ISO Arch Linux
 ### download iso arch menggungakan web arch cari indonesia, citrahost dan link archlinux-2026.05.01-x86_64.iso
 
@@ -64,7 +64,7 @@ mkdir -p /mnt/boot
 ## 8.Download aplikasi
 ```
 
-pacstrap /mnt intel-ucode linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2
+pacstrap /mnt intel-ucode linux linux-headers linux-firmware iwd neovim sbctl git base-devel lvm2 vmlinuz-linux
 ```
 
 ## 9. Menyimpan mountingan

@@ -167,7 +167,7 @@ mkdir -p kernel efi
 ```
 ```
 
-mv intel-ucode.img kernel
+mv intel-ucode.img kernel/
 ```
 ```
 

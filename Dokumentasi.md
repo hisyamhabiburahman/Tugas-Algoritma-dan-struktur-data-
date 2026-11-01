@@ -239,10 +239,6 @@ exit
 ```
 ```
 
-bootctl --path=boot install
-```
-```
-
 bootctl --path=/mnt/boot install
 ```
 ```

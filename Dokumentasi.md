@@ -16,7 +16,7 @@ tekan esc berkali-kali
 
 ## 4. Sambungkan ke internet
 ```
-iwctl`
+iwctl
 ```
 
 ```

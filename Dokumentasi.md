@@ -46,6 +46,10 @@ vfat format
 
 cryptsetup luksFormat /dev/nvme0n1p (partisi untuk root)
 ```
+```
+
+cryptsetup open /dev/nvme0n1p10 main
+```
 
 ## 7. Mounting 
 ```

@@ -159,7 +159,7 @@ touch /etc/cmdline.d/01-boot.conf
 ```
 ```
 
-echo "rd.luks.name=$(blkid -s UUID -o /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf (nvme0n1p16 itu partisi boot)
+echo "rd.luks.name=$(blkid -s UUID -o value /dev/nvme0n1p16)=main root=/dev/ mapper/main" > /etc/cmdline.d/01-boot.conf (nvme0n1p16 itu partisi boot)
 ```
 ```
 

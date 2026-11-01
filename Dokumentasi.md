@@ -246,7 +246,10 @@ systemctl enable --now systemd-networkd
 
 systemctl enable --now systemd-resolved
 ```
+```
+
 reboot
+```
 
 ## 17. Masuk Kedalam Arch Linux
 ```
@@ -256,9 +259,10 @@ sudo su
 
 ## 18. Setup BIOS Mode
 ### posisi BIOS mati
+```
 
-### reboot
-
+reboot
+```
 ### masuk ke dalam arch
 
 ```
@@ -281,9 +285,10 @@ sbctl sign -s /boot/efi/BOOT/BOOTX64.EFI
 
 sbctl sign -s /boot/kernel/vmlinuz-linux
 ```
+```
 
-### reboot
-
+ reboot
+```
 ### lalu ke BIOS 
 
 ### F7
@@ -293,9 +298,10 @@ sbctl sign -s /boot/kernel/vmlinuz-linux
 ### reset key setup
 
 ### save
+```
 
-### reboot
-
+ reboot
+```
 ## 19. Masuk Kedalam Arch
 ### Tampilan archlinux
 

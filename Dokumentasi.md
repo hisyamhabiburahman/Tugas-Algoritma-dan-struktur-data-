@@ -35,13 +35,8 @@ station wlan0 connect nama wifi
 ping 8.8.8.8
 ```
 
-## 5. Format partisi
-```
 
-vfat format
-```
-
-## 6. Setup luks 
+## 5. Setup luks 
 ```
 
 cryptsetup luksFormat /dev/nvme0n1p (partisi untuk root)
@@ -49,6 +44,26 @@ cryptsetup luksFormat /dev/nvme0n1p (partisi untuk root)
 ```
 
 cryptsetup open /dev/nvme0n1p10 main
+```
+
+## 6. Format partisi
+```
+
+format root ke ext4
+
+```mkfs.ext4 /dev/nvme0n1p7```
+
+format partisi tambahan
+
+```mkfs.ext4 /dev/nvme0n1p6```
+
+aktifkan swap (swap digunakan sebagai cadangan ketika RAM penuh)
+
+```mkswap /dev/nvme0n1p6```
+
+```swapon /dev/nvme0n1p6```
+
+format boot ```mkfs.fat -F 32 /dev/nvme0n1p5```
 ```
 
 ## 7. Mounting 

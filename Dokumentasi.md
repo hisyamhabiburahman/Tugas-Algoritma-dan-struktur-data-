@@ -51,7 +51,7 @@ cryptsetup open /dev/nvme0n1p10 main
 
 format root ke ext4
 
-```mkfs.ext4 /dev/nvme0n1p10```
+```mkfs.ext4 /dev/mapper/main```
 
 format partisi tambahan
 
@@ -78,6 +78,10 @@ mkfs.ext4 /dev/mapper/main
 ```
 
 mkdir -p /mnt/boot
+```
+```
+
+mount /dev/nvme0n1p9 /mnt/boot
 ```
 
 ## 8.Download aplikasi

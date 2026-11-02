@@ -39,7 +39,7 @@ ping 8.8.8.8
 ## 5. Setup luks 
 ```
 
-cryptsetup luksFormat /dev/nvme0n1p (partisi untuk root)
+cryptsetup luksFormat /dev/nvme0n1p10 (partisi untuk root)
 ```
 ```
 
@@ -51,7 +51,7 @@ cryptsetup open /dev/nvme0n1p10 main
 
 format root ke ext4
 
-```mkfs.ext4 /dev/nvme0n1p7```
+```mkfs.ext4 /dev/nvme0n1p10```
 
 format partisi tambahan
 
@@ -63,7 +63,7 @@ aktifkan swap (swap digunakan sebagai cadangan ketika RAM penuh)
 
 ```swapon /dev/nvme0n1p6```
 
-format boot ```mkfs.fat -F 32 /dev/nvme0n1p5```
+format boot ```mkfs.fat -F 32 /dev/nvme0n1p9```
 ```
 
 ## 7. Mounting 
